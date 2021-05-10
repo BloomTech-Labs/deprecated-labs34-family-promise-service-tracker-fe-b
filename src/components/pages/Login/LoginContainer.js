@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import OktaSignIn from '@okta/okta-signin-widget';
 import '@okta/okta-signin-widget/dist/css/okta-sign-in.min.css';
 
@@ -6,6 +7,13 @@ import { config } from '../../../utils/oktaConfig';
 import logo from '../../../assets/logo.png';
 
 const LoginContainer = () => {
+  const history = useHistory();
+  useEffect(() => {
+    let role = localStorage.getItem('role');
+    if (role) {
+      history.push('/');
+    }
+  }, []);
   useEffect(() => {
     const { pkce, issuer, clientId, redirectUri, scopes } = config;
     // destructure your config so that you can pass it into the required fields in your widget.
