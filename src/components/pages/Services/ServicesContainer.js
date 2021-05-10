@@ -1,7 +1,7 @@
 import React from 'react';
 import RenderServicesPage from './RenderServicesPage';
-import { TabletHeader } from '../../common/index';
 import TitleComponent from '../../common/Title';
+import ProgramTable from '../../common/ProgramsTable/ProgramTable';
 
 function ServicesContainer() {
   return (
@@ -10,6 +10,7 @@ function ServicesContainer() {
         <TitleComponent TitleText="Services" />
         <RenderServicesPage />
       </div>
+      <ProgramTable />
     </div>
   );
 }
