@@ -94,7 +94,7 @@ function AddRecipientForm({ visible, onCreate, onCancel }) {
         </Form.Item>
         <Form.Item
           name="phoneNumber"
-          label="Phone number"
+          label="Phone Number"
           rules={[
             {
               required: false,
@@ -116,7 +116,7 @@ function AddRecipientForm({ visible, onCreate, onCancel }) {
         </Form.Item>
         <Form.Item
           name="veteranStatus"
-          label="Verteran Status"
+          label="Veteran Status"
           rules={[
             {
               required: false,
