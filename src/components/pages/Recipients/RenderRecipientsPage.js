@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { addEmployeeAction } from '../../../state/actions';
 import { connect } from 'react-redux';
 import { Button } from 'antd';
-import AddRecipientForm from '../../forms/AddRecipientForm';
+import AddEmployeeForm from '../../forms/AddEmployeeForm';
 
 function RenderRecipientsPage({ addEmployeeAction }) {
   const [visible, setVisible] = useState(false);
@@ -23,7 +23,7 @@ function RenderRecipientsPage({ addEmployeeAction }) {
         >
           Add Recipient
         </Button>
-        <AddRecipientForm
+        <AddEmployeeForm
           visible={visible}
           onCreate={onCreate}
           onCancel={() => {
