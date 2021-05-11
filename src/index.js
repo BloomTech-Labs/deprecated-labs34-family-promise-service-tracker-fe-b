@@ -1,17 +1,19 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import {
   BrowserRouter as Router,
   Route,
   useHistory,
   Switch,
-  useLocation,
 } from 'react-router-dom';
 import { Security, LoginCallback, SecureRoute } from '@okta/okta-react';
+
 import { Provider } from 'react-redux';
 import { store } from './state/index';
+
 import 'antd/dist/antd.less';
 import './app.scss';
+
 import { MyProfile } from './components/pages/MyProfile';
 import { EmployeesPage } from './components/pages/Employees';
 import { ProgramsPage } from './components/pages/Programs';
@@ -22,6 +24,7 @@ import { LoginPage } from './components/pages/Login';
 import { config } from './utils/oktaConfig';
 import { LoadingOutlined } from '@ant-design/icons';
 import { TabletHeader } from './components/common/index';
+
 ReactDOM.render(
   <Router>
     <React.StrictMode>
@@ -32,19 +35,21 @@ ReactDOM.render(
   </Router>,
   document.getElementById('root')
 );
+
 function App() {
   // The reason to declare App this way is so that we can use any helper functions we'd need for business logic, in our case auth.
   // React Router has a nifty useHistory hook we can use at this level to ensure we have security around our routes.
   const history = useHistory();
-  const location = useLocation();
+
   const authHandler = () => {
     // We pass this to our <Security /> component that wraps our routes.
     // It'll automatically check if userToken is available and push back to login if not :)
     history.push('/login');
   };
+
   return (
     <Security {...config} onAuthRequired={authHandler}>
-      {location.pathname !== '/login' && <TabletHeader />}
+      {localStorage.getItem('okta-token-storage') ? <TabletHeader /> : <></>}
       <Switch>
         <Route exact path="/login" component={LoginPage} />
         <Route path="/implicit/callback" component={LoginCallback} />
