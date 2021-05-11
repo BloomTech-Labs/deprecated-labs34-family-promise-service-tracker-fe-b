@@ -7,16 +7,13 @@ import { config } from '../../../utils/oktaConfig';
 import logo from '../../../assets/logo.png';
 
 const LoginContainer = () => {
+  const history = useHistory();
   useEffect(() => {
-    // let role = localStorage.getItem('role');
-    // if (role) {
-    //   history.push('/');
-    // }
-    localStorage.removeItem('role');
-    localStorage.removeItem('okta-cache-storage');
-    localStorage.removeItem('okta-token-storage');
+    let role = localStorage.getItem('role');
+    if (role) {
+      history.push('/');
+    }
   }, []);
-
   useEffect(() => {
     const { pkce, issuer, clientId, redirectUri, scopes } = config;
     // destructure your config so that you can pass it into the required fields in your widget.
