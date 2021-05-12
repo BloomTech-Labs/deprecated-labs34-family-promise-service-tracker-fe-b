@@ -85,11 +85,12 @@ function RenderMyProfile({
         </Form.Item>
         <Form.Item label="Your Programs">
           <div>
-            {curUser.programs.map(program => (
+            {/* {curUser.programs.map(program => (
               <>
                 <h4>{program.name}</h4>
               </>
-            ))}
+            ))} */}{' '}
+            programs
           </div>
         </Form.Item>
         {/* <Form.Item

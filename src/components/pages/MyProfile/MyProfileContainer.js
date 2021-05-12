@@ -115,7 +115,7 @@ function MyProfileContainer({ LoadingOutlined, updateUserAction }) {
 
   return (
     <div>
-      <div className="sub-header">
+      <div className="sub-header-profile">
         <TitleComponent TitleText="My Profile" />
       </div>
 

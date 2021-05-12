@@ -6,7 +6,7 @@ function TitleComponent({ TitleText }) {
   const { Title } = Typography;
   return (
     <div className="title-container desktop-title">
-      <Title level={2}>{TitleText}</Title>
+      <h2 className="page-titles">{TitleText}</h2>
     </div>
   );
 }

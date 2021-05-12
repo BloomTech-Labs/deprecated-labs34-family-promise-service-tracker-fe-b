@@ -1,16 +1,25 @@
 .title-container {
-  margin-left: 1.3em;
+  margin-left: 5rem;
   @media (min-width: 992px) {
     // margin-left: 10rem;
     margin-left: 5rem;
   }
 }
 
+.page-titles {
+  font-size: 2.5rem;
+  @media (max-width: 992px) {
+    font-size: 2rem;
+  }
+}
+
 .top-bar-div {
-  padding-left: 140px;
-  @media (min-width: 992px) {
-    // margin-left: 10rem;
-    margin-left: 10rem;
+  width: 250px;
+  padding: 15px 0 35px 0;
+  margin: 10px auto;
+  @media (max-width: 992px) {
+    margin: 0 auto;
+    padding: 0 0 25px;
   }
 }
 
