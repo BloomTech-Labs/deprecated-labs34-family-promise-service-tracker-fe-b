@@ -7,7 +7,7 @@ const NavbarHeader = props => {
   return (
     <>
       {localStorage.getItem('okta-token-storage') ? (
-        <div className={props.classType} style={{ display: 'flex' }}>
+        <div className={props.classType}>
           <div className="test">
             <HamburgerMenu />
           </div>

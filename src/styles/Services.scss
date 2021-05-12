@@ -3,20 +3,22 @@
   justify-content: space-between;
   margin-top: 1rem;
   @media (min-width: 992px) {
-    margin-left: 20px;
+    margin-left: 25px;
   }
 }
 
 .add-services-btn-ctn {
-  margin-right: 5rem;
+  margin-right: 8%;
+  margin-top: 1rem;
   @media (min-width: 992px) {
-    margin-left: 1rem;
+    margin-right: 10%;
   }
 }
 .add-type-btn-ctn {
-  margin-left: 13rem;
+  margin-right: -15%;
+  margin-top: 1rem;
   @media (min-width: 992px) {
-    margin-left: 30rem;
+    margin-right: -35%;
   }
 }
 
