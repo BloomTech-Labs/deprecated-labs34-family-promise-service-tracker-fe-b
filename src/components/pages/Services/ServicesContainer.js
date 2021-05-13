@@ -6,8 +6,10 @@ import ProgramTable from '../../common/ProgramsTable/ProgramTable';
 function ServicesContainer() {
   return (
     <div>
-      <div className="services-header">
+      <center>
         <TitleComponent TitleText="Services" />
+      </center>
+      <div className="sub-header">
         <RenderServicesPage />
       </div>
       <ProgramTable />

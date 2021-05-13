@@ -6,8 +6,10 @@ import TitleComponent from '../../common/Title';
 function EmployeesContainer() {
   return (
     <div>
-      <div className="sub-header">
+      <center>
         <TitleComponent TitleText="Employees" />
+      </center>
+      <div className="sub-header">
         <RenderEmployeesPage />
       </div>
       <div className="tablectn">

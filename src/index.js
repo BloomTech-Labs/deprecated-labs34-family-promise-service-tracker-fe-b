@@ -12,6 +12,7 @@ import { Provider } from 'react-redux';
 import { store } from './state/index';
 import 'antd/dist/antd.less';
 import './app.scss';
+import { AdminDash } from './components/pages/AdminDash';
 import { MyProfile } from './components/pages/MyProfile';
 import { EmployeesPage } from './components/pages/Employees';
 import { ProgramsPage } from './components/pages/Programs';
@@ -54,6 +55,7 @@ function App() {
           exact
           component={() => <MyProfile LoadingOutlined={LoadingOutlined} />}
         />
+        <SecureRoute path="/adminDash" component={AdminDash} />
         <SecureRoute path="/employees" component={EmployeesPage} />
         <SecureRoute path="/programs" component={ProgramsPage} />
         <SecureRoute path="/recipients" component={RecipientsPage} />
