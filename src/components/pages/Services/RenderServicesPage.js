@@ -46,7 +46,7 @@ function RenderServicesPage({ addServiceAction }) {
         />
       </div>
 
-      <div className="add-services-btn-ctn">
+      <div className="add-type-btn-ctn">
         <Button
           type="primary"
           onClick={() => {
