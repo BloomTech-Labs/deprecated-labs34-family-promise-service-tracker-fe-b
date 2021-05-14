@@ -40,7 +40,7 @@ export const serviceTypeReducer = (state = initialServiceTypeState, action) => {
     case GET_ALL_SERVICE_TYPE_SUCCESS:
       return {
         ...state,
-        types: action.payload,
+        serviceTypes: action.payload,
         status: 'Success',
       };
     case GET_ALL_SERVICE_TYPE_FAIL:

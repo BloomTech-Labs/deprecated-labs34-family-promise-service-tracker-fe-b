@@ -2,7 +2,10 @@ import React, { useState } from 'react';
 import { Button } from 'antd';
 
 //redux import
-import { addServiceAction } from '../../../state/actions/index';
+import {
+  addServiceAction,
+  addServiceTypeAction,
+} from '../../../state/actions/index';
 import { connect } from 'react-redux';
 
 //component import
@@ -23,7 +26,7 @@ function RenderServicesPage({ addServiceAction }) {
   const onCreateType = values => {
     console.log('received values from type', values);
     setTypeVisible(false);
-    // addServiceTypeAction(values);
+    addServiceTypeAction(values);
   };
 
   return (
