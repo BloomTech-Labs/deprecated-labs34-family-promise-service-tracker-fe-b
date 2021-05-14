@@ -57,6 +57,22 @@ export const getServiceTypeByIdAction = typeId => dispatch => {
     });
 };
 
+export const addServiceTypeAction = serviceTypeObj => dispatch => {
+  dispatch({ type: ADD_SERVICE_TYPE_START });
+
+  axiosWithAuth()
+    .post(`/api/service_type`, serviceTypeObj)
+    .then(res => {
+      dispatch({ type: ADD_SERVICE_TYPE_SUCCESS, payload: res.data });
+    })
+    .catch(err => {
+      dispatch({ type: ADD_SERVICE_TYPE_FAIL, payload: err.message });
+    })
+    .finally(() => {
+      dispatch({ type: ADD_SERVICE_TYPE_RESOLVE });
+    });
+};
+
 export const editServiceTypeAction = (typeId, typeObj) => dispatch => {
   dispatch({ type: EDIT_SERVICE_TYPE_START });
 
