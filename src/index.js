@@ -13,6 +13,8 @@ import { store } from './state/index';
 import 'antd/dist/antd.less';
 import './app.scss';
 import { AdminDash } from './components/pages/AdminDash';
+import { ProgramsDash } from './components/pages/ProgramsDash';
+import { ServicesDash } from './components/pages/ServicesDash';
 import { MyProfile } from './components/pages/MyProfile';
 import { EmployeesPage } from './components/pages/Employees';
 import { ProgramsPage } from './components/pages/Programs';
@@ -56,6 +58,8 @@ function App() {
           component={() => <MyProfile LoadingOutlined={LoadingOutlined} />}
         />
         <SecureRoute path="/adminDash" component={AdminDash} />
+        <SecureRoute path="/programsDash" component={ProgramsDash} />
+        <SecureRoute path="/servicesDash" component={ServicesDash} />
         <SecureRoute path="/employees" component={EmployeesPage} />
         <SecureRoute path="/programs" component={ProgramsPage} />
         <SecureRoute path="/recipients" component={RecipientsPage} />
