@@ -5,8 +5,7 @@ function AddRecipientForm({ visible, onCreate, onCancel }) {
   const [form] = Form.useForm();
   const states = [
     'AL',
-    'Ak',
-    'AS',
+    'AK',
     'AZ',
     'AR',
     'CA',
@@ -16,7 +15,48 @@ function AddRecipientForm({ visible, onCreate, onCancel }) {
     'DC',
     'FL',
     'GA',
+    'HI',
+    'ID',
+    'IL',
+    'IN',
+    'IA',
+    'KS',
+    'KY',
+    'LA',
+    'ME',
+    'MD',
+    'MA',
+    'MI',
+    'MN',
+    'MS',
+    'MO',
+    'MT',
+    'NE',
+    'NV',
+    'NH',
+    'NJ',
+    'NM',
+    'NY',
+    'NC',
+    'ND',
+    'OH',
+    'OK',
+    'OR',
+    'PA',
+    'RI',
+    'SC',
+    'SD',
+    'TN',
+    'TX',
+    'UT',
+    'VT',
+    'VA',
+    'WA',
+    'WV',
+    'WI',
+    'WY',
   ];
+  const ethnicity = ['White', 'Hispanic', 'Asian', 'African American'];
 
   return (
     <Modal
@@ -80,6 +120,22 @@ function AddRecipientForm({ visible, onCreate, onCancel }) {
           ]}
         >
           <Input />
+        </Form.Item>
+        <Form.Item
+          label="Ethnicity"
+          name="ethnicity"
+          rules={[
+            {
+              required: true,
+              message: 'Please select the recipient Ethnicity',
+            },
+          ]}
+        >
+          <Select placeholder="Select Ethnicity" mode="multiple" size="large">
+            {ethnicity.map(item => (
+              <Select.Option key={item}> {item}</Select.Option>
+            ))}
+          </Select>
         </Form.Item>
         <Form.Item
           name="email"
@@ -154,7 +210,7 @@ function AddRecipientForm({ visible, onCreate, onCancel }) {
           rules={[
             {
               required: true,
-              message: 'Please select the recipient state',
+              message: 'Please select the recipient State',
             },
           ]}
         >
