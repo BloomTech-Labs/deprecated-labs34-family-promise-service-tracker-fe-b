@@ -22,8 +22,6 @@ function ServicesDashContainer() {
   );
 }
 
-const StyledContainer = styled.div`
-  //border: solid 1px red;
-`;
+const StyledContainer = styled.div``;
 
 export default ServicesDashContainer;

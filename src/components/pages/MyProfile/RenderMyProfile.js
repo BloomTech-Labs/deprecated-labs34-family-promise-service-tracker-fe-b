@@ -8,7 +8,6 @@ import {
   Upload,
   uploadButton,
 } from 'antd';
-// import { LoadingOutlined, PlusOutlined } from 'ant-design/icons';
 
 function RenderMyProfile({
   curUser,
@@ -25,7 +24,6 @@ function RenderMyProfile({
 
   const uploadButton = (
     <div>
-      {/* {loading ? <LoadingOutlined /> : <PlusOutlined />} */}
       <div style={{ marginTop: 8 }}>Upload</div>
     </div>
   );
@@ -50,27 +48,6 @@ function RenderMyProfile({
             onChange={onChange}
             name="firstName"
           />
-
-          {/* {!isInEditMode ? 
-          (
-            <Input
-              disabled={disabled}
-              // placeholder={curUser.name}
-              size="large"
-              defaultValue={curUser.name}
-              value={curUser.name}
-              onChange={onChange}
-              name="name"
-            />
-          ) : (
-            <Input
-              size="large"
-              defaultValue={curUser.name}
-              value={curUser.name}
-              onChange={onChange}
-              name="name"
-            />
-          )} */}
         </Form.Item>
         <Form.Item label="Last Name" className="label-header">
           <Input
@@ -84,30 +61,9 @@ function RenderMyProfile({
           />
         </Form.Item>
         <Form.Item label="Your Programs">
-          <div>
-            {/* {curUser.programs.map(program => (
-              <>
-                <h4>{program.name}</h4>
-              </>
-            ))} */}{' '}
-            programs
-          </div>
+          <div> programs</div>
         </Form.Item>
-        {/* <Form.Item
-          label="Programs"
-          rules={[
-            {
-              required: true,
-              message: 'Please select the Project',
-            },
-          ]}
-        >
-          <Select size="large" mode="multiple" disabled defaultValue={programs}>
-            {curUser.programs.map(item => (
-              <Select.Option key={item}> {item.name}</Select.Option>
-            ))}
-          </Select>
-        </Form.Item> */}
+
         <div className="save-edit-container">
           {!isInEditMode && (
             <Button

@@ -37,14 +37,8 @@ const TableComponent = ({
 }) => {
   // tableData is what is consumed by the antd table on render
   const tableData = [];
-
-  // const initialTagValues = {
-  //   selectedTags: employees.programs,
-  // };
-
   const [form] = Form.useForm();
   const [editingKey, setEditingKey] = useState('');
-  // const [selected, setSelected] = useState(initialTagValues);
 
   useEffect(() => {
     getAllServiceTypesAction();
@@ -81,21 +75,7 @@ const TableComponent = ({
   };
 
   // Delete functionality is on hold for now
-  const deleteUser = key => {
-    // deleteEmployeeAction(key);
-  };
-
-  // const { CheckableTag } = Tag;
-
-  // const { selectedTags } = selected;
-
-  // const handleSelected = (tag, checked) => {
-  //   // const { selectedTags } = selected;
-  //   const nextSelectedTags = checked
-  //     ? [...selectedTags, tag]
-  //     : selectedTags.filter(t => t !== tag);
-  //   setSelected({ selectedTags: nextSelectedTags });
-  // };
+  const deleteUser = key => {};
 
   const selectRole = role => {
     return role === 'administrator'
@@ -113,11 +93,7 @@ const TableComponent = ({
     if (serviceTypes) {
       serviceTypes.map(serviceType => {
         const programs = [];
-        // serviceType.programs.map(program => {
-        //   if (program !== null) {
-        //     programs.push(program.name);
-        //   }
-        // });
+
         return tableData.push({
           key: serviceType.id,
           name: serviceType.name,
@@ -179,71 +155,7 @@ const TableComponent = ({
         );
       },
     },
-    // {
-    //   title: 'Programs',
-    //   dataIndex: 'programs',
-    //   key: 'programs',
-    //   editable: true,
-    //   render: (_, record) => {
-    //     const editable = isEditing(record);
-    //     return editable ? (
-    //       <Form.Item
-    //         name="programs"
-    //         style={{ margin: 0 }}
-    //         rules={[
-    //           {
-    //             required: true,
-    //             message: 'Please select programs',
-    //           },
-    //         ]}
-    //       >
-    //         <Select size="middle" mode="multiple">
-    //           {programs.map(item => (
-    //             <Select.Option key={item} value={item.id}>
-    //               {item.name}
-    //             </Select.Option>
-    //           ))}
-    //         </Select>
-    //       </Form.Item>
-    //     ) : (
-    //       //   <Form.Item name={record.dataIndex}>
-    //       //     <>
-    //       //       {programs.map(tag => (
-    //       //         <CheckableTag
-    //       //           key={tag}
-    //       //           checked={selectedTags.indexOf(tag) > -1}
-    //       //           onChange={checked => handleSelected(tag, checked)}
-    //       //         >
-    //       //           {tag}
-    //       //         </CheckableTag>
-    //       //       ))}
-    //       //     </>
-    //       //   </Form.Item>
-    //       // )
-    //       <>
-    //         {record.programs.map(program => {
-    //           return (
-    //             <Tag
-    //               color={
-    //                 program === 'Prevention'
-    //                   ? 'blue'
-    //                   : program === 'Sheltering'
-    //                   ? 'purple'
-    //                   : program === 'Aftercare'
-    //                   ? 'gold'
-    //                   : 'magenta'
-    //               }
-    //               size="small"
-    //               key={program}
-    //             >
-    //               {program}
-    //             </Tag>
-    //           );
-    //         })}
-    //       </>
-    //     );
-    //   },
-    // },
+
     {
       title: 'Actions',
       dataIndex: 'actions',
@@ -293,7 +205,6 @@ const TableComponent = ({
         <Form form={form}>
           <Table
             className="desktop-table"
-            // rowSelection={CheckboxComponent(tableData)}
             columns={columns}
             dataSource={tableData}
             bordered

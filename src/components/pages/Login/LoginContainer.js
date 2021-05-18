@@ -8,10 +8,6 @@ import logo from '../../../assets/logo.png';
 
 const LoginContainer = () => {
   useEffect(() => {
-    // let role = localStorage.getItem('role');
-    // if (role) {
-    //   history.push('/');
-    // }
     localStorage.removeItem('role');
     localStorage.removeItem('okta-cache-storage');
     localStorage.removeItem('okta-token-storage');

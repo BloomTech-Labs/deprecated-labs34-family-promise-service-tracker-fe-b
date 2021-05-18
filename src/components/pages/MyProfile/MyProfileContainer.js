@@ -150,5 +150,3 @@ const mapStateToProps = state => {
 };
 
 export default connect(null, { updateUserAction })(MyProfileContainer);
-
-// export default MyProfileContainer;

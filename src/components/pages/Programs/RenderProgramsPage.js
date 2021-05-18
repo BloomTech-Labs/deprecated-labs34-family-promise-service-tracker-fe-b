@@ -9,7 +9,6 @@ import { Button } from 'antd';
 
 function RenderProgramsPage({ addProgramAction, getAllProgramsAction }) {
   const [visible, setVisible] = useState(false);
-  // const [programList, setProgramList] = useState(null);
 
   const onCreate = programObj => {
     addProgramAction(programObj);

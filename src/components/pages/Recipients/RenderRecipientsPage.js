@@ -35,5 +35,4 @@ function RenderRecipientsPage({ addEmployeeAction }) {
   );
 }
 
-// export default RenderRecipientsPage;
 export default connect(null, { addEmployeeAction })(RenderRecipientsPage);

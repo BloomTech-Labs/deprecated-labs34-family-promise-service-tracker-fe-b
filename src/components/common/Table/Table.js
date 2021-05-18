@@ -37,14 +37,8 @@ const TableComponent = ({
 }) => {
   // tableData is what is consumed by the antd table on render
   const tableData = [];
-
-  // const initialTagValues = {
-  //   selectedTags: employees.programs,
-  // };
-
   const [form] = Form.useForm();
   const [editingKey, setEditingKey] = useState('');
-  // const [selected, setSelected] = useState(initialTagValues);
 
   useEffect(() => {
     getAllEmployeeAction();
@@ -81,21 +75,7 @@ const TableComponent = ({
   };
 
   // Delete functionality is on hold for now
-  const deleteUser = key => {
-    // deleteEmployeeAction(key);
-  };
-
-  // const { CheckableTag } = Tag;
-
-  // const { selectedTags } = selected;
-
-  // const handleSelected = (tag, checked) => {
-  //   // const { selectedTags } = selected;
-  //   const nextSelectedTags = checked
-  //     ? [...selectedTags, tag]
-  //     : selectedTags.filter(t => t !== tag);
-  //   setSelected({ selectedTags: nextSelectedTags });
-  // };
+  const deleteUser = key => {};
 
   const selectRole = role => {
     return role === 'administrator'
@@ -234,20 +214,6 @@ const TableComponent = ({
             </Select>
           </Form.Item>
         ) : (
-          //   <Form.Item name={record.dataIndex}>
-          //     <>
-          //       {programs.map(tag => (
-          //         <CheckableTag
-          //           key={tag}
-          //           checked={selectedTags.indexOf(tag) > -1}
-          //           onChange={checked => handleSelected(tag, checked)}
-          //         >
-          //           {tag}
-          //         </CheckableTag>
-          //       ))}
-          //     </>
-          //   </Form.Item>
-          // )
           <>
             {record.programs.map(program => {
               return (
@@ -321,7 +287,6 @@ const TableComponent = ({
         <Form form={form}>
           <Table
             className="desktop-table"
-            // rowSelection={CheckboxComponent(tableData)}
             columns={columns}
             dataSource={tableData}
             bordered

@@ -11,8 +11,6 @@ import {
 
 const { TextArea } = Input;
 
-const programs = ['Prevention', 'After Care', 'Sheltering'];
-
 const status = ['Complete', 'In Progress', 'Needs Follow-Up', 'Not Started'];
 
 const providers = ['Ruth Higgins', 'John Wick', 'Samuel G.'];
@@ -60,22 +58,6 @@ function AddServiceForm({ visible, onCreate, onCancel }) {
             <Input placeholder="Enter Name" size="large" />
           </Form.Item>
 
-          {/* <Form.Item
-            label="Program Name"
-            name="program"
-            rules={[
-              {
-                required: true,
-                message: 'Please select the Project',
-              },
-            ]}
-          >
-            <Select size="large" placeholder="Select Program">
-              {programs.map(item => (
-                <Select.Option key={item}> {item}</Select.Option>
-              ))}
-            </Select>
-          </Form.Item> */}
           <Form.Item
             label="Address"
             name="Address"

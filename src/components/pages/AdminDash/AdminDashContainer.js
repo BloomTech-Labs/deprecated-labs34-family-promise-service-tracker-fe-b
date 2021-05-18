@@ -23,8 +23,6 @@ function AdminDashContainer() {
   );
 }
 
-const StyledContainer = styled.div`
-  //border: solid 1px red;
-`;
+const StyledContainer = styled.div``;
 
 export default AdminDashContainer;
