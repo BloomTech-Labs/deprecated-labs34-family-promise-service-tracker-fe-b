@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Avatar,
   Form,
@@ -8,6 +8,7 @@ import {
   Upload,
   uploadButton,
 } from 'antd';
+import { axiosWithAuth } from '../../../utils/axiosWithAuth';
 // import { LoadingOutlined, PlusOutlined } from 'ant-design/icons';
 
 function RenderMyProfile({
@@ -22,6 +23,7 @@ function RenderMyProfile({
   uploadImage,
 }) {
   const [loading, setLoading] = useState('false');
+  const [myPrograms, setMyPrograms] = useState(false);
 
   const uploadButton = (
     <div>
@@ -29,6 +31,8 @@ function RenderMyProfile({
       <div style={{ marginTop: 8 }}>Upload</div>
     </div>
   );
+
+  console.log(curUser.programs);
 
   return (
     <div className="profile-container desktop-profile">
@@ -84,14 +88,17 @@ function RenderMyProfile({
           />
         </Form.Item>
         <Form.Item label="Your Programs">
-          <div>
-            {/* {curUser.programs.map(program => (
-              <>
-                <h4>{program.name}</h4>
-              </>
-            ))} */}{' '}
-            programs
-          </div>
+          {curUser.programs[0] ? (
+            <div>
+              {curUser.programs.map(program => (
+                <>
+                  <h4>{program.name}</h4>
+                </>
+              ))}{' '}
+            </div>
+          ) : (
+            <div>No Assigned Programs</div>
+          )}
         </Form.Item>
         {/* <Form.Item
           label="Programs"
