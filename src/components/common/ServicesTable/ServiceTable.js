@@ -130,7 +130,7 @@ const TableComponent = ({
 
   const columns = [
     {
-      title: 'Name',
+      title: 'Service Name',
       dataIndex: 'name',
       key: 'name',
       editable: true,
@@ -151,6 +151,31 @@ const TableComponent = ({
           </Form.Item>
         ) : (
           <>{record.name}</>
+        );
+      },
+    },
+    {
+      title: 'Type',
+      dataIndex: 'type',
+      key: 'type',
+      editable: true,
+      render: (_, record) => {
+        const editable = isEditing(record);
+        return editable ? (
+          <Form.Item
+            name="type"
+            style={{ margin: 0 }}
+            rules={[
+              {
+                required: true,
+                message: `Please Input type!`,
+              },
+            ]}
+          >
+            <Input defaultValue={record.type} />
+          </Form.Item>
+        ) : (
+          <>{record.type}</>
         );
       },
     },
