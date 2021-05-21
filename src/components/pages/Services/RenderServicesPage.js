@@ -70,4 +70,14 @@ function RenderServicesPage({ addServiceAction }) {
   );
 }
 
-export default RenderServicesPage;
+const mapStateToProps = state => {
+  console.log(state);
+  return {
+    services: state.service.services,
+  };
+};
+
+export default connect(mapStateToProps, {
+  addServiceAction,
+  addServiceTypeAction,
+})(RenderServicesPage);

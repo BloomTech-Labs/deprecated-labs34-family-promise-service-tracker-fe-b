@@ -33,7 +33,7 @@ export const getAllServicesAction = () => dispatch => {
   dispatch({ type: GET_ALL_SERVICE_START });
 
   axiosWithAuth()
-    .get(`/api/services`)
+    .get(`/api/service_entry`)
     .then(res => {
       dispatch({ type: GET_ALL_SERVICE_SUCCESS, payload: res.data });
     })
@@ -49,7 +49,7 @@ export const getServiceByIdAction = serviceId => dispatch => {
   dispatch({ type: GET_SERVICE_START });
 
   axiosWithAuth()
-    .get(`/api/service/${serviceId}`)
+    .get(`/api/service_entry/${serviceId}`)
     .then(res => {
       dispatch({ type: GET_SERVICE_SUCCESS, payload: res.data });
     })
@@ -65,7 +65,7 @@ export const addServiceAction = serviceObj => dispatch => {
   dispatch({ type: ADD_SERVICE_START });
 
   axiosWithAuth()
-    .post(`/api/service`, serviceObj)
+    .post(`/api/service_entry`, serviceObj)
     .then(res => {
       dispatch({ type: ADD_SERVICE_SUCCESS, payload: res.data });
     })
@@ -81,7 +81,7 @@ export const editServiceAction = (serviceId, serviceObj) => dispatch => {
   dispatch({ type: EDIT_SERVICE_START });
 
   axiosWithAuth()
-    .put(`/api/service/${serviceId}`, serviceObj)
+    .put(`/api/service_entry/${serviceId}`, serviceObj)
     .then(res => {
       dispatch({ type: EDIT_SERVICE_SUCCESS, payload: res.data });
     })
@@ -97,7 +97,7 @@ export const deleteServiceAction = serviceId => dispatch => {
   dispatch({ type: DELETE_SERVICE_START });
 
   axiosWithAuth()
-    .delete(`/api/service/${serviceId}`)
+    .delete(`/api/service_entry/${serviceId}`)
     .then(res => {
       dispatch({ type: DELETE_SERVICE_SUCCESS, payload: res.data });
     })
