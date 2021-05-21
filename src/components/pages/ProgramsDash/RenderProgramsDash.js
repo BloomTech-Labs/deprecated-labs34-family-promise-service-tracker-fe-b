@@ -8,13 +8,7 @@ import AddRecipientForm from '../../forms/AddRecipientForm';
 function RenderProgramsDash({ addEmployeeAction }) {
   const [programVisible, setProgramVisible] = useState(false);
   const [serviceVisible, setServiceVisible] = useState(false);
-  const [employeeVisible, setEmployeeVisible] = useState(false);
   const [recipientVisible, setRecipientVisible] = useState(false);
-
-  const onCreate = employeeObj => {
-    addEmployeeAction(employeeObj);
-    setEmployeeVisible(false);
-  };
 
   return (
     <>
@@ -30,7 +24,7 @@ function RenderProgramsDash({ addEmployeeAction }) {
 
         <AddProgramForm
           visible={programVisible}
-          onCreate={onCreate}
+          onCreate={null}
           onCancel={() => {
             setProgramVisible(false);
           }}
@@ -49,7 +43,7 @@ function RenderProgramsDash({ addEmployeeAction }) {
 
         <AddServiceTypeForm
           visible={serviceVisible}
-          onCreate={onCreate}
+          onCreate={null}
           onCancel={() => {
             setServiceVisible(false);
           }}
@@ -68,7 +62,7 @@ function RenderProgramsDash({ addEmployeeAction }) {
 
         <AddRecipientForm
           visible={recipientVisible}
-          onCreate={onCreate}
+          onCreate={null}
           onCancel={() => {
             setRecipientVisible(false);
           }}

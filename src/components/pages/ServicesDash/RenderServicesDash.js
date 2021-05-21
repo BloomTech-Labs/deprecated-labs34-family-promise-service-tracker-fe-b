@@ -5,15 +5,8 @@ import AddServiceTypeForm from '../../forms/AddServiceTypeForm';
 import AddRecipientForm from '../../forms/AddRecipientForm';
 
 function RenderServicesDash({ addEmployeeAction }) {
-  const [programVisible, setProgramVisible] = useState(false);
   const [serviceVisible, setServiceVisible] = useState(false);
-  const [employeeVisible, setEmployeeVisible] = useState(false);
   const [recipientVisible, setRecipientVisible] = useState(false);
-
-  const onCreate = employeeObj => {
-    addEmployeeAction(employeeObj);
-    setEmployeeVisible(false);
-  };
 
   return (
     <>
@@ -29,7 +22,7 @@ function RenderServicesDash({ addEmployeeAction }) {
 
         <AddServiceTypeForm
           visible={serviceVisible}
-          onCreate={onCreate}
+          onCreate={null}
           onCancel={() => {
             setServiceVisible(false);
           }}
@@ -48,7 +41,7 @@ function RenderServicesDash({ addEmployeeAction }) {
 
         <AddRecipientForm
           visible={recipientVisible}
-          onCreate={onCreate}
+          onCreate={null}
           onCancel={() => {
             setRecipientVisible(false);
           }}
