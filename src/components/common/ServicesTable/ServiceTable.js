@@ -19,40 +19,46 @@ import {
 
 //action import
 import {
-  getAllServicesAction,
-  getServiceByIdAction,
-  addServiceAction,
-  editServiceAction,
-  deleteServiceAction,
+  getAllServiceTypesAction,
+  getServiceTypeByIdAction,
+  editServiceTypeAction,
+  deleteServiceTypeAction,
   getAllProgramsAction,
 } from '../../../state/actions';
 
 const TableComponent = ({
-  getAllServicesAction,
-  getServiceByIdAction,
-  addServiceAction,
-  editServiceAction,
-  deleteServiceAction,
-  services,
+  getAllServiceTypesAction,
+  getServiceTypeByIdAction,
+  editServiceTypeAction,
+  deleteServiceTypeAction,
+  serviceTypes,
   programs,
   change,
 }) => {
   // tableData is what is consumed by the antd table on render
   const tableData = [];
 
+  // const initialTagValues = {
+  //   selectedTags: employees.programs,
+  // };
+
   const [form] = Form.useForm();
   const [editingKey, setEditingKey] = useState('');
+  // const [selected, setSelected] = useState(initialTagValues);
 
   useEffect(() => {
-    getAllServicesAction();
+    getAllServiceTypesAction();
+    getAllProgramsAction();
   }, [change]);
 
   const isEditing = record => record.key === editingKey;
 
   const edit = record => {
     form.setFieldsValue({
-      name: '',
-      status: '',
+      firstName: '',
+      lastName: '',
+      role: '',
+      programs: [],
       ...record,
     });
     setEditingKey(record.key);
@@ -62,113 +68,146 @@ const TableComponent = ({
     setEditingKey('');
   };
 
-  const save = async serviceId => {
+  const save = async serviceTypeId => {
     try {
-      const serviceObj = await form.validateFields();
-      console.log('key', serviceId);
-      console.log('edited Row', serviceObj);
-      editServiceAction(serviceId, serviceObj);
+      const serviceTypeObj = await form.validateFields();
+      console.log('key', serviceTypeId);
+      console.log('edited Row', serviceTypeObj);
+      editServiceTypeAction(serviceTypeId, serviceTypeObj);
       setEditingKey('');
     } catch (errInfo) {
       console.log('Validate Failed:', errInfo);
     }
   };
 
-  const deleteUser = key => {
-    deleteServiceAction(key);
+  // Delete functionality is on hold for now
+  const deleteService = key => {
+    // deleteEmployeeAction(key)
+    deleteServiceTypeAction(key);
+    console.log('HHHH', key);
   };
 
-  const serviceObjCreator = () => {
-    if (services) {
-      services.map(service => {
-        let recipientName = service.firstname + ' ' + service.lastname;
+  // const { CheckableTag } = Tag;
+
+  // const { selectedTags } = selected;
+
+  // const handleSelected = (tag, checked) => {
+  //   // const { selectedTags } = selected;
+  //   const nextSelectedTags = checked
+  //     ? [...selectedTags, tag]
+  //     : selectedTags.filter(t => t !== tag);
+  //   setSelected({ selectedTags: nextSelectedTags });
+  // };
+
+  const selectRole = role => {
+    return role === 'administrator'
+      ? 'Administrator'
+      : role === 'program_manager'
+      ? 'Program Manager'
+      : role === 'service_provider'
+      ? 'Service Provider'
+      : role === 'unassigned'
+      ? 'None'
+      : role;
+  };
+
+  const userObjCreator = () => {
+    if (serviceTypes) {
+      serviceTypes.map(serviceType => {
+        const programs = [];
+        // serviceType.programs.map(program => {
+        //   if (program !== null) {
+        //     programs.push(program.name);
+        //   }
+        // });
         return tableData.push({
-          key: service.service_entries_id,
-          service_name: service.service_name,
-          status: service.status,
-          recipient_name: recipientName,
+          key: serviceType.service_type_id,
+          name: serviceType.name,
+          type: serviceType.program_id,
+          description: serviceType.description,
         });
       });
     }
   };
-  serviceObjCreator();
+  userObjCreator();
 
   const columns = [
     {
       title: 'Service Name',
-      dataIndex: 'service_name',
-      key: 'service_name',
+      dataIndex: 'name',
+      key: 'name',
       editable: true,
       render: (_, record) => {
         const editable = isEditing(record);
         return editable ? (
           <Form.Item
-            name="service_name"
+            name="name"
             style={{ margin: 0 }}
             rules={[
               {
                 required: true,
-                message: `Please Input Service Name!`,
+                message: `Please Input Service Type Name!`,
               },
             ]}
           >
-            <Input defaultValue={record.service_name} />
+            <Input defaultValue={record.name} />
           </Form.Item>
         ) : (
-          <>{record.service_name}</>
+          <>{record.name}</>
         );
       },
     },
     {
-      title: 'Status',
-      dataIndex: 'status',
-      key: 'status',
+      title: 'Type',
+      dataIndex: 'program_id',
+      key: 'type',
       editable: true,
       render: (_, record) => {
         const editable = isEditing(record);
         return editable ? (
           <Form.Item
-            name="status"
+            name="program_id"
             style={{ margin: 0 }}
             rules={[
               {
-                required: true,
-                message: `Please Input Status!`,
+                // required: true,
+                // message: `Please Input type!`,
               },
             ]}
           >
-            <Input defaultValue={record.status} />
+            <Input defaultValue={record.type} />
           </Form.Item>
         ) : (
-          <>{record.status}</>
+          <>{record.type}</>
         );
       },
     },
     {
-      title: 'Recipient Name',
-      dataIndex: 'recipient_name',
-      key: 'recipient_name',
+      title: 'Description',
+      dataIndex: 'description',
+      key: 'description',
       editable: true,
       render: (_, record) => {
         const editable = isEditing(record);
         return editable ? (
           <Form.Item
-            name="recipient_name"
+            name="description"
             style={{ margin: 0 }}
             rules={[
               {
                 required: true,
-                message: `Please Input Recipient Name!`,
+                message: `Please Input Description!`,
               },
             ]}
           >
-            <Input defaultValue={record.recipient_name} />
+            <Input defaultValue={record.description} />
           </Form.Item>
         ) : (
-          <>{record.recipient_name}</>
+          <>{record.description}</>
         );
       },
     },
+
     {
       title: 'Actions',
       dataIndex: 'actions',
@@ -200,7 +239,7 @@ const TableComponent = ({
             </Typography.Link>
             <Popconfirm
               title="Sure to delete?"
-              onConfirm={() => deleteUser(record.key)}
+              onConfirm={() => deleteService(record.key)}
               danger
             >
               {<DeleteOutlined />}
@@ -218,6 +257,7 @@ const TableComponent = ({
         <Form form={form}>
           <Table
             className="desktop-table"
+            // rowSelection={CheckboxComponent(tableData)}
             columns={columns}
             dataSource={tableData}
             bordered
@@ -230,17 +270,16 @@ const TableComponent = ({
 
 const mapStateToProps = state => {
   return {
-    services: state.service.services,
+    serviceTypes: state.serviceType.serviceTypes,
     programs: state.program.programs,
-    change: state.service.change,
+    change: state.serviceType.change,
   };
 };
 
 export default connect(mapStateToProps, {
-  getAllServicesAction,
-  getServiceByIdAction,
-  addServiceAction,
-  editServiceAction,
-  deleteServiceAction,
+  getAllServiceTypesAction,
+  getServiceTypeByIdAction,
+  editServiceTypeAction,
+  deleteServiceTypeAction,
   getAllProgramsAction,
 })(TableComponent);
