@@ -19,7 +19,7 @@ export const initialUserState = {
     id: '',
     firstName: '',
     lastName: '',
-    role: '',
+    role: 'this is a role',
     updated_at: '',
   },
   status: 'Resolved',

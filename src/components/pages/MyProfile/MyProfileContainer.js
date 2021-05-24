@@ -5,7 +5,7 @@ import { TabletHeader } from '../../common/index';
 import { axiosWithAuth } from '../../../utils/axiosWithAuth';
 import './profile.css';
 import { connect } from 'react-redux';
-import { updateUserAction } from '../../../state/actions';
+import { getUserAction, updateUserAction } from '../../../state/actions';
 import TitleComponent from '../../common/Title';
 
 const initialFormValues = {
@@ -50,9 +50,11 @@ function MyProfileContainer({ LoadingOutlined, updateUserAction }) {
   //brings in user data from back-end
   useEffect(() => {
     axiosWithAuth()
-      .get(`api/profile/${userId}`)
+      .get(`/api/profile/${userId}`)
       .then(res => {
         setCurUser(res.data);
+        console.log(res.data);
+        getUserAction(userId);
         localStorage.setItem('role', res.data.role);
       })
       .catch(err => {
@@ -149,6 +151,8 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(null, { updateUserAction })(MyProfileContainer);
+export default connect(null, { getUserAction, updateUserAction })(
+  MyProfileContainer
+);
 
 // export default MyProfileContainer;
