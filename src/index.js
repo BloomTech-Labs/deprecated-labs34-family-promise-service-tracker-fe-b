@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import {
   BrowserRouter as Router,
@@ -15,7 +15,7 @@ import './app.scss';
 import { AdminDash } from './components/pages/AdminDash';
 import { ProgramsDash } from './components/pages/ProgramsDash';
 import { ServicesDash } from './components/pages/ServicesDash';
-import { MyProfile } from './components/pages/MyProfile';
+import RoutingPage from './components/pages/RoutingPage/index.js';
 import { EmployeesPage } from './components/pages/Employees';
 import { ProgramsPage } from './components/pages/Programs';
 import { RecipientsPage } from './components/pages/Recipients';
@@ -55,7 +55,7 @@ function App() {
         <SecureRoute
           path="/"
           exact
-          component={() => <MyProfile LoadingOutlined={LoadingOutlined} />}
+          component={() => <RoutingPage LoadingOutlined={LoadingOutlined} />}
         />
         <SecureRoute path="/adminDash" component={AdminDash} />
         <SecureRoute path="/programsDash" component={ProgramsDash} />
