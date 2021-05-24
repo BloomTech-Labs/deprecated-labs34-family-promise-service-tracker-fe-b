@@ -2,13 +2,14 @@ import React, { useState, useEffect, useMemo } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { useOktaAuth } from '@okta/okta-react';
+import { axiosWithAuth } from '../../../utils/axiosWithAuth';
 import { getUserAction } from '../../../state/actions';
 import RenderAdminDash from './RenderAdminDash';
 import { TableComponent } from '../../common';
 import ProgramTable from '../../common/ProgramsTable/ProgramTable';
 import TitleComponent from '../../common/Title';
 
-function AdminDashContainer(props, { LoadingOutlined }) {
+function AdminDashContainer(props) {
   const { role } = props;
   const { authState, authService } = useOktaAuth();
   const [userId, setUserId] = useState(false);
@@ -34,6 +35,18 @@ function AdminDashContainer(props, { LoadingOutlined }) {
 
   useEffect(() => {
     props.getUserAction(userId);
+  }, [userId]);
+
+  // might not even need this once the navBar renders based on the role in Redux instead of localStorage...
+  useEffect(() => {
+    axiosWithAuth()
+      .get(`/api/profile/${userId}`)
+      .then(res => {
+        localStorage.setItem('role', res.data.role);
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }, [userId]);
 
   return role === 'administrator' ? (
