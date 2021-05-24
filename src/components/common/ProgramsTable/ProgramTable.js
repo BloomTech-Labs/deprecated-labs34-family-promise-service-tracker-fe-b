@@ -31,7 +31,7 @@ const ProgramTable = ({
     getAllProgramsAction();
   }, [change]);
 
-  const isEditing = record => record.id === editingKey;
+  const isEditing = record => record.program_id === editingKey;
 
   const edit = record => {
     form.setFieldsValue({
@@ -40,7 +40,7 @@ const ProgramTable = ({
       description: '',
       ...record,
     });
-    setEditingKey(record.id);
+    setEditingKey(record.program_id);
   };
 
   const cancel = () => {
@@ -150,7 +150,7 @@ const ProgramTable = ({
           <span>
             <Space size="middle">
               <a
-                onClick={() => save(record.id)}
+                onClick={() => save(record.program_id)}
                 style={{ color: '#1890FF', marginRight: 8 }}
               >
                 Save
@@ -173,7 +173,7 @@ const ProgramTable = ({
             <Popconfirm
               title="Sure to delete?"
               onConfirm={() => {
-                deleteProgram(record.id);
+                deleteProgram(record.program_id);
               }}
               danger
             >
