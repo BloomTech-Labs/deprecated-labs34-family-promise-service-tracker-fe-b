@@ -34,26 +34,27 @@ function RenderMyProfile({
 
   return (
     <div className="profile-container desktop-profile">
-      <Form layout="vertical" onSubmit={onSubmit}>
-        <Form.Item>
-          <img src={curUser.avatarUrl} alt="avatar" className="avatar" />
-          {isInEditMode && (
-            <input type="file" name="file" onChange={uploadImage}></input>
-          )}
-        </Form.Item>
+      <center>
+        <Form layout="vertical" onSubmit={onSubmit}>
+          <Form.Item>
+            <img src={curUser.avatarUrl} alt="avatar" className="avatar" />
+            {isInEditMode && (
+              <input type="file" name="file" onChange={uploadImage}></input>
+            )}
+          </Form.Item>
 
-        <Form.Item label="First Name" className="label-header">
-          <Input
-            disabled={disabled}
-            placeholder={curUser.firstName}
-            size="large"
-            defaultValue={curUser.firstName}
-            value={profileValues.firstName}
-            onChange={onChange}
-            name="firstName"
-          />
+          <Form.Item label="First Name" className="label-header">
+            <Input
+              disabled={disabled}
+              placeholder={curUser.firstName}
+              size="large"
+              defaultValue={curUser.firstName}
+              value={profileValues.firstName}
+              onChange={onChange}
+              name="firstName"
+            />
 
-          {/* {!isInEditMode ? 
+            {/* {!isInEditMode ? 
           (
             <Input
               disabled={disabled}
@@ -73,32 +74,32 @@ function RenderMyProfile({
               name="name"
             />
           )} */}
-        </Form.Item>
-        <Form.Item label="Last Name" className="label-header">
-          <Input
-            disabled={disabled}
-            placeholder={curUser.lastName}
-            size="large"
-            defaultValue={curUser.lastName}
-            value={profileValues.lastName}
-            onChange={onChange}
-            name="lastName"
-          />
-        </Form.Item>
-        <Form.Item label="Your Programs">
-          {curUser.programs[0] ? (
-            <div>
-              {curUser.programs.map(program => (
-                <>
-                  <h4>{program.name}</h4>
-                </>
-              ))}{' '}
-            </div>
-          ) : (
-            <div>No Assigned Programs</div>
-          )}
-        </Form.Item>
-        {/* <Form.Item
+          </Form.Item>
+          <Form.Item label="Last Name" className="label-header">
+            <Input
+              disabled={disabled}
+              placeholder={curUser.lastName}
+              size="large"
+              defaultValue={curUser.lastName}
+              value={profileValues.lastName}
+              onChange={onChange}
+              name="lastName"
+            />
+          </Form.Item>
+          <Form.Item label="Your Programs">
+            {curUser.programs[0] ? (
+              <div>
+                {curUser.programs.map(program => (
+                  <>
+                    <h4>{program.name}</h4>
+                  </>
+                ))}{' '}
+              </div>
+            ) : (
+              <div>No Assigned Programs</div>
+            )}
+          </Form.Item>
+          {/* <Form.Item
           label="Programs"
           rules={[
             {
@@ -113,41 +114,42 @@ function RenderMyProfile({
             ))}
           </Select>
         </Form.Item> */}
-        <div className="save-edit-container">
-          {!isInEditMode && (
-            <Button
-              size="large"
-              type="primary"
-              onClick={handleEdit}
-              className="profile-btn"
-            >
-              Edit Name
-            </Button>
-          )}
-          {isInEditMode && (
-            <Button
-              size="large"
-              type="primary"
-              onClick={onSubmit}
-              className="profile-btn"
-            >
-              Save Name
-            </Button>
-          )}
-        </div>
-        <div className="cancel-contain">
-          {isInEditMode && (
-            <Button
-              type="text"
-              className="cancel-btn"
-              size="large"
-              onClick={handleCancel}
-            >
-              Cancel
-            </Button>
-          )}
-        </div>
-      </Form>
+          <div className="save-edit-container">
+            {!isInEditMode && (
+              <Button
+                size="large"
+                type="primary"
+                onClick={handleEdit}
+                className="profile-btn"
+              >
+                Edit Name
+              </Button>
+            )}
+            {isInEditMode && (
+              <Button
+                size="large"
+                type="primary"
+                onClick={onSubmit}
+                className="profile-btn"
+              >
+                Save Name
+              </Button>
+            )}
+          </div>
+          <div className="cancel-contain">
+            {isInEditMode && (
+              <Button
+                type="text"
+                className="cancel-btn"
+                size="large"
+                onClick={handleCancel}
+              >
+                Cancel
+              </Button>
+            )}
+          </div>
+        </Form>
+      </center>
     </div>
   );
 }
