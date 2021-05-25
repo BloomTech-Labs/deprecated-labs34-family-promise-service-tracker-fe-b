@@ -70,7 +70,7 @@ const HamburgerMenu = () => {
                   <Menu.Item
                     key="1"
                     icon={<UserOutlined />}
-                    onClick={() => onClickDesk('/')}
+                    onClick={() => onClickDesk('/myProfile')}
                   >
                     My Profile
                   </Menu.Item>
@@ -124,7 +124,7 @@ const HamburgerMenu = () => {
                   <Menu.Item
                     key="1"
                     icon={<UserOutlined />}
-                    onClick={() => onClickDesk('/')}
+                    onClick={() => onClickDesk('/myProfile')}
                   >
                     My Profile
                   </Menu.Item>
@@ -171,7 +171,7 @@ const HamburgerMenu = () => {
                   <Menu.Item
                     key="1"
                     icon={<UserOutlined />}
-                    onClick={() => onClickDesk('/')}
+                    onClick={() => onClickDesk('/myProfile')}
                   >
                     My Profile
                   </Menu.Item>

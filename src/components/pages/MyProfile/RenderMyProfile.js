@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import {
   Avatar,
   Form,
@@ -31,8 +31,6 @@ function RenderMyProfile({
       <div style={{ marginTop: 8 }}>Upload</div>
     </div>
   );
-
-  console.log(curUser.programs);
 
   return (
     <div className="profile-container desktop-profile">

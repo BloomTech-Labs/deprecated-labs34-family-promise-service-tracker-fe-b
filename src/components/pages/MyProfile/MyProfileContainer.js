@@ -14,7 +14,7 @@ const initialFormValues = {
   avatarUrl: '',
 };
 
-function MyProfileContainer({ LoadingOutlined, updateUserAction }) {
+function MyProfileContainer(props, { updateUserAction, getUserAction }) {
   const { authState, authService } = useOktaAuth();
   const [userId, setUserId] = useState(false);
   const [curUser, setCurUser] = useState(false);
@@ -54,7 +54,7 @@ function MyProfileContainer({ LoadingOutlined, updateUserAction }) {
       .then(res => {
         setCurUser(res.data);
         console.log(res.data);
-        getUserAction(userId);
+        props.getUserAction(userId);
         localStorage.setItem('role', res.data.role);
       })
       .catch(err => {
@@ -117,17 +117,15 @@ function MyProfileContainer({ LoadingOutlined, updateUserAction }) {
 
   return (
     <div>
-      <div className="sub-header-profile">
-        <TitleComponent TitleText="My Profile" />
-      </div>
+      <center>
+        <div className="sub-header-profile">
+          <TitleComponent TitleText="My Profile" />
+        </div>
+      </center>
 
-      {authState.isAuthenticated && !curUser && (
-        <LoadingOutlined className="loader" />
-      )}
       {authState.isAuthenticated && curUser && (
         <RenderMyProfile
           curUser={curUser}
-          LoadingOutlined={LoadingOutlined}
           authState={authState}
           handleEdit={handleEdit}
           handleCancel={handleCancel}
