@@ -123,7 +123,14 @@ const TableComponent = ({
         return tableData.push({
           key: serviceType.service_type_id,
           name: serviceType.name,
-          type: serviceType.program_id,
+          type:
+            serviceType.program_id === 1
+              ? 'Prevention'
+              : serviceType.program_id === 2
+              ? 'Sheltering'
+              : serviceType.program_id === 3
+              ? 'Aftercare'
+              : serviceType.program_id,
           description: serviceType.description,
         });
       });
