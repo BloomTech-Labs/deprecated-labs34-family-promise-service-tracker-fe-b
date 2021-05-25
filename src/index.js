@@ -15,6 +15,7 @@ import './app.scss';
 import { AdminDash } from './components/pages/AdminDash';
 import { ProgramsDash } from './components/pages/ProgramsDash';
 import { ServicesDash } from './components/pages/ServicesDash';
+import { MyProfile } from './components/pages/MyProfile/index.js';
 import RoutingPage from './components/pages/RoutingPage/index.js';
 import { EmployeesPage } from './components/pages/Employees';
 import { ProgramsPage } from './components/pages/Programs';
@@ -52,14 +53,11 @@ function App() {
         <Route exact path="/login" component={LoginPage} />
         <Route path="/implicit/callback" component={LoginCallback} />
         {/* any of the routes you need secured should be registered as SecureRoutes */}
-        <SecureRoute
-          path="/"
-          exact
-          component={() => <RoutingPage LoadingOutlined={LoadingOutlined} />}
-        />
+        <SecureRoute path="/" exact component={() => <RoutingPage />} />
         <SecureRoute path="/adminDash" component={AdminDash} />
         <SecureRoute path="/programsDash" component={ProgramsDash} />
         <SecureRoute path="/servicesDash" component={ServicesDash} />
+        <SecureRoute path="/myProfile" component={MyProfile} />
         <SecureRoute path="/employees" component={EmployeesPage} />
         <SecureRoute path="/programs" component={ProgramsPage} />
         <SecureRoute path="/recipients" component={RecipientsPage} />

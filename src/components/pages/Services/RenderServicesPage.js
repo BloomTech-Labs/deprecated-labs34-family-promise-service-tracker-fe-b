@@ -13,20 +13,20 @@ import AddServiceForm from '../../forms/AddServiceForm';
 import AddServiceTypeForm from '../../forms/AddServiceTypeForm';
 
 //addServiceTypeAction
-function RenderServicesPage({ addServiceAction }) {
+function RenderServicesPage(props) {
   const [visible, setVisible] = useState(false);
   const [typeVisible, setTypeVisible] = useState(false);
 
   const onCreate = values => {
     console.log('received values of form:', values);
     setVisible(false);
-    addServiceAction(values);
+    props.addServiceAction(values);
   };
 
   const onCreateType = values => {
     console.log('received values from type', values);
     setTypeVisible(false);
-    addServiceTypeAction(values);
+    props.addServiceTypeAction(values);
   };
 
   return (

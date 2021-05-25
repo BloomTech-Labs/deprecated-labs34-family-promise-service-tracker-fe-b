@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 import { axiosWithAuth } from '../../../utils/axiosWithAuth';
 import { getUserAction } from '../../../state/actions';
 
-function RoutingPage(props, { LoadingOutlined }) {
+function RoutingPage(props) {
   const { role } = props;
   const { authState, authService } = useOktaAuth();
   const [userId, setUserId] = useState(false);
