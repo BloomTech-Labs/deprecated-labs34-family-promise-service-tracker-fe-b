@@ -122,8 +122,8 @@ const TableComponent = ({
         // });
         return tableData.push({
           key: serviceType.service_type_id,
-          name: serviceType.name,
-          type: serviceType.program_id,
+          name: serviceType.service,
+          type: serviceType.program,
           description: serviceType.description,
         });
       });
