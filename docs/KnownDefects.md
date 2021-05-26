@@ -1,3 +1,1 @@
-1. SideNavBar Desktop view displays even when not logged in. On Trello. 
-2. Profile ReRender not happening after savings changes. On Trello. 
-3. Role doesn't always get switched when logged out and logging in with another user. On Trello. 
+1. On the service type table we have it working where you can edit the service types and the program type will display the program it is associated with. The bug is that on the back end it goes through an intermediary table and although it shows as a name it is represented by a number 1, 2, or 3. So in order to edit you need to put a 1, 2, or 3 in program type field instead of the actual program name. A way to fix this would be to add a drop down and figure out how to send a number to the backend instead a string.
