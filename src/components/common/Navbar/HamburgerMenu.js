@@ -69,41 +69,48 @@ const HamburgerMenu = () => {
                 >
                   <Menu.Item
                     key="1"
+                    icon={<TeamOutlined />}
+                    onClick={() => onClickDesk('/adminDash')}
+                  >
+                    Dashboard
+                  </Menu.Item>
+                  <Menu.Item
+                    key="2"
                     icon={<UserOutlined />}
                     onClick={() => onClickDesk('/myProfile')}
                   >
                     My Profile
                   </Menu.Item>
                   <Menu.Item
-                    key="2"
+                    key="3"
                     icon={<TeamOutlined />}
                     onClick={() => onClickDesk('/employees')}
                   >
                     Employees
                   </Menu.Item>
                   <Menu.Item
-                    key="3"
+                    key="4"
                     icon={<ProjectOutlined />}
                     onClick={() => onClickDesk('/programs')}
                   >
                     Programs
                   </Menu.Item>
                   <Menu.Item
-                    key="4"
+                    key="5"
                     icon={<UsergroupAddOutlined />}
                     onClick={() => onClickDesk('/recipients')}
                   >
                     Recipients
                   </Menu.Item>
                   <Menu.Item
-                    key="5"
+                    key="6"
                     icon={<ReconciliationOutlined />}
                     onClick={() => onClickDesk('/services')}
                   >
                     Services
                   </Menu.Item>
                   <Menu.Item
-                    key="6"
+                    key="7"
                     icon={<LeftCircleOutlined />}
                     className="logout-ctn"
                     onClick={handleLogout}
@@ -123,34 +130,41 @@ const HamburgerMenu = () => {
                 >
                   <Menu.Item
                     key="1"
+                    icon={<TeamOutlined />}
+                    onClick={() => onClickDesk('/programsDash')}
+                  >
+                    Dashboard
+                  </Menu.Item>
+                  <Menu.Item
+                    key="2"
                     icon={<UserOutlined />}
                     onClick={() => onClickDesk('/myProfile')}
                   >
                     My Profile
                   </Menu.Item>
                   <Menu.Item
-                    key="3"
+                    key="4"
                     icon={<ProjectOutlined />}
                     onClick={() => onClickDesk('/programs')}
                   >
                     Programs
                   </Menu.Item>
                   <Menu.Item
-                    key="4"
+                    key="5"
                     icon={<UsergroupAddOutlined />}
                     onClick={() => onClickDesk('/recipients')}
                   >
                     Recipients
                   </Menu.Item>
                   <Menu.Item
-                    key="5"
+                    key="6"
                     icon={<ReconciliationOutlined />}
                     onClick={() => onClickDesk('/services')}
                   >
                     Services
                   </Menu.Item>
                   <Menu.Item
-                    key="6"
+                    key="7"
                     icon={<LeftCircleOutlined />}
                     className="logout-ctn"
                     onClick={handleLogout}
@@ -170,20 +184,27 @@ const HamburgerMenu = () => {
                 >
                   <Menu.Item
                     key="1"
+                    icon={<TeamOutlined />}
+                    onClick={() => onClickDesk('/servicesDash')}
+                  >
+                    Dashboard
+                  </Menu.Item>
+                  <Menu.Item
+                    key="2"
                     icon={<UserOutlined />}
                     onClick={() => onClickDesk('/myProfile')}
                   >
                     My Profile
                   </Menu.Item>
                   <Menu.Item
-                    key="5"
+                    key="6"
                     icon={<ReconciliationOutlined />}
                     onClick={() => onClickDesk('/services')}
                   >
                     Services
                   </Menu.Item>
                   <Menu.Item
-                    key="6"
+                    key="7"
                     icon={<LeftCircleOutlined />}
                     className="logout-ctn"
                     onClick={handleLogout}
@@ -214,41 +235,48 @@ const HamburgerMenu = () => {
             <Menu theme="light" mode="inline" defaultSelectedKeys={['1']}>
               <Menu.Item
                 key="1"
+                icon={<TeamOutlined />}
+                onClick={() => onClickDesk('/adminDash')}
+              >
+                Dashboard
+              </Menu.Item>
+              <Menu.Item
+                key="2"
                 icon={<UserOutlined />}
                 onClick={() => onClick('/')}
               >
                 My Profile
               </Menu.Item>
               <Menu.Item
-                key="2"
+                key="3"
                 icon={<TeamOutlined />}
                 onClick={() => onClick('/employees')}
               >
                 Employees
               </Menu.Item>
               <Menu.Item
-                key="3"
+                key="4"
                 icon={<ProjectOutlined />}
                 onClick={() => onClick('/programs')}
               >
                 Programs
               </Menu.Item>
               <Menu.Item
-                key="4"
+                key="5"
                 icon={<UsergroupAddOutlined />}
                 onClick={() => onClick('/recipients')}
               >
                 Recipients
               </Menu.Item>
               <Menu.Item
-                key="5"
+                key="6"
                 icon={<ReconciliationOutlined />}
                 onClick={() => onClick('/services')}
               >
                 Services
               </Menu.Item>
               <Menu.Item
-                key="6"
+                key="7"
                 icon={<LeftCircleOutlined />}
                 className="logout-ctn"
                 onClick={handleLogout}
@@ -263,13 +291,20 @@ const HamburgerMenu = () => {
             <Menu theme="light" mode="inline" defaultSelectedKeys={['1']}>
               <Menu.Item
                 key="1"
+                icon={<TeamOutlined />}
+                onClick={() => onClickDesk('/programsDash')}
+              >
+                Dashboard
+              </Menu.Item>
+              <Menu.Item
+                key="2"
                 icon={<UserOutlined />}
                 onClick={() => onClick('/')}
               >
                 My Profile
               </Menu.Item>
               <Menu.Item
-                key="3"
+                key="4"
                 icon={<ProjectOutlined />}
                 onClick={() => onClick('/programs')}
               >
@@ -283,14 +318,14 @@ const HamburgerMenu = () => {
                 Recipients
               </Menu.Item>
               <Menu.Item
-                key="5"
+                key="6"
                 icon={<ReconciliationOutlined />}
                 onClick={() => onClick('/services')}
               >
                 Services
               </Menu.Item>
               <Menu.Item
-                key="6"
+                key="7"
                 icon={<LeftCircleOutlined />}
                 className="logout-ctn"
                 onClick={handleLogout}
@@ -305,20 +340,27 @@ const HamburgerMenu = () => {
             <Menu theme="light" mode="inline" defaultSelectedKeys={['1']}>
               <Menu.Item
                 key="1"
+                icon={<TeamOutlined />}
+                onClick={() => onClickDesk('/servicesDash')}
+              >
+                Dashboard
+              </Menu.Item>
+              <Menu.Item
+                key="2"
                 icon={<UserOutlined />}
                 onClick={() => onClick('/')}
               >
                 My Profile
               </Menu.Item>
               <Menu.Item
-                key="5"
+                key="6"
                 icon={<ReconciliationOutlined />}
                 onClick={() => onClick('/services')}
               >
                 Services
               </Menu.Item>
               <Menu.Item
-                key="6"
+                key="7"
                 icon={<LeftCircleOutlined />}
                 className="logout-ctn"
                 onClick={handleLogout}
