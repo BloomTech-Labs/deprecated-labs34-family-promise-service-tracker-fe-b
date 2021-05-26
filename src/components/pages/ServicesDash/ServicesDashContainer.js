@@ -59,6 +59,14 @@ function ServicesDashContainer(props, { LoadingOutlined }) {
       <div>
         <ProgramTable />
       </div>
+      <StyledImgDiv>
+        <center>
+          <img
+            src="https://billypenn.com/wp-content/uploads/2020/11/pretzel-map-768x431.jpg"
+            alt="Example Google Map"
+          />
+        </center>
+      </StyledImgDiv>
     </StyledContainer>
   ) : (
     <center>
@@ -67,15 +75,19 @@ function ServicesDashContainer(props, { LoadingOutlined }) {
   );
 }
 
+const StyledContainer = styled.div`
+  //border: solid 1px red;
+`;
+
+const StyledImgDiv = styled.div`
+  margin-top: 3%;
+`;
+
 const mapStateToProps = state => {
   return {
     role: state.user.user.role,
   };
 };
-
-const StyledContainer = styled.div`
-  //border: solid 1px red;
-`;
 
 export default connect(mapStateToProps, { getUserAction })(
   ServicesDashContainer

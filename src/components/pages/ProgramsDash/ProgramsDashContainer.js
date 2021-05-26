@@ -60,6 +60,14 @@ function ProgramsDashContainer(props, { LoadingOutlined }) {
       <div>
         <ProgramTable />
       </div>
+      <StyledImgDiv>
+        <center>
+          <img
+            src="https://billypenn.com/wp-content/uploads/2020/11/pretzel-map-768x431.jpg"
+            alt="Example Google Map"
+          />
+        </center>
+      </StyledImgDiv>
     </StyledContainer>
   ) : (
     <center>
@@ -70,6 +78,10 @@ function ProgramsDashContainer(props, { LoadingOutlined }) {
 
 const StyledContainer = styled.div`
   //border: solid 1px red;
+`;
+
+const StyledImgDiv = styled.div`
+  margin-top: 3%;
 `;
 
 const mapStateToProps = state => {
