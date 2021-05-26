@@ -19,6 +19,7 @@ function AddServiceTypeForm({ onCreate, onCancel, visible }) {
             .validateFields()
             .then(values => {
               form.resetFields();
+              console.log(values, 'VALUES');
               onCreate(values);
             })
             .catch(info => {
@@ -47,7 +48,7 @@ function AddServiceTypeForm({ onCreate, onCancel, visible }) {
             <Input />
           </Form.Item>
           <Form.Item
-            name="type"
+            name="program_id"
             label="Type"
             rules={[
               {
@@ -56,11 +57,12 @@ function AddServiceTypeForm({ onCreate, onCancel, visible }) {
               },
             ]}
           >
-            <Select size="large" placeholder="Select Type">
+            {/* <Select size="large" placeholder="Select Type">
               {programs.map(item => (
                 <Select.Option key={item}>{item}</Select.Option>
               ))}
-            </Select>
+            </Select> */}
+            <Input />
           </Form.Item>
 
           <Form.Item
